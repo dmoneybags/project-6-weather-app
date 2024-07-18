@@ -8,7 +8,7 @@ const fahrenheit = (kelvin) => {
 //requests latitude and longitude from the geo api
 const getLatLon = (city) => {
     return new Promise((resolve, reject) => {
-        url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}`;
+        url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}`;
         fetch(url)
         .then((response) => {
             console.log("recieved reponse for getting lat lon from city name");
@@ -24,7 +24,7 @@ const getLatLon = (city) => {
 }
 //gets weather data after requesting lat and lon
 const getWeatherData = (lat, lon) => {
-    url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`
+    url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`
     return new Promise((resolve, reject) => {
         fetch(url)
         .then((response) => {
