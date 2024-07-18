@@ -1,0 +1,51 @@
+* {
+    font-family: sans-serif;
+}
+header{
+    width: 100%;
+    background-color: blue;
+    color: white;
+    font-size: 48px;
+}
+input{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+main{
+    width: 100%;
+    display: flex;
+}
+#main-title{
+    padding: 20px;
+}
+#search-side-bar{
+    position: sticky;
+    width: 30%;
+    min-height: 100%;
+}
+#weather-section{
+    width: 70%;
+}
+#city-search-title{
+    margin: auto;
+    width: 80%;
+    font-size: 24px;
+    margin: 10px;
+}
+#search-for-city{
+    margin: 10px;
+    color: white;
+}
+#weather-details{
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+#five-day-forecast{
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style/main.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <header>
+        <h1 id="main-title">Weather Dashboard</h1>
+    </header>
+    <main>
+        <div id="search-side-bar">
+            <h2 id="city-search-title">Search for a City</h2>
+            <form action="">
+                <input type="text" class="input is-link" name="citySearch" id="search-for-city" placeholder="San Francisco">
+                <button id="submit-form" class="button is-ghost">Search</button>
+            </form>
+            <hr style="margin: 10px">
+        </div>
+        <div id="weather-section">
+            <div id="weather-details" class="has-background-link-dark box">
+                <h1 id="main-city-name" class="title">Atlanta (9/13/2022)</h1>
+                <hr>
+                <p id="main-temp" class="main-city-detail subtitle is-4">Temp: 76.62 F</p>
+                <p id="main-wind" class="main-city-detail subtitle is-4">Wind: 8.43 MPH</p>
+                <p id="main-humidity" class="main-city-detail subtitle is-4">Humidity: 44%</p>
+            </div>
+            <div id="five-day-forecast">
+                <p class="title is-2">5-day-forecast</p>
+                <div id="days-container" class="days-container columns">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
