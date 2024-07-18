@@ -38,6 +38,7 @@ const getWeatherData = (lat, lon) => {
 }
 //renders the main weather card
 const renderMainWeather = (weatherJson) => {
+    console.log(weatherJson);
     const weatherDays = weatherJson.list;
     const curDay = weatherDays[0];
     const timeStr = dayjs.unix(curDay.dt);
@@ -52,6 +53,14 @@ const renderMainWeather = (weatherJson) => {
     mainWind.textContent = "wind: " + curDay.wind.speed + " MPH";
     const mainHumidity = document.getElementById("main-humidity");
     mainHumidity.textContent = "humidity: " + curDay.main.humidity + " %";
+    const img = document.createElement("img");
+    img.src = `https://openweathermap.org/img/wn/${curDay.weather[0].icon}@2x.png`;
+    mainWeatherEl = document.getElementById("weather-details");
+    const images = mainWeatherEl.getElementsByTagName('img');
+    if (images[0]){
+        mainWeatherEl.removeChild(images[0]);
+    }
+    mainWeatherEl.prepend(img);
 }
 //gets the html element for a 5 day forecast card
 const getCard = (day_data) => {
@@ -63,6 +72,9 @@ const getCard = (day_data) => {
     card.classList.add("column");
     card.classList.add("day-forecast");
     let lineItems = [formattedDate, "temp: " + fahrenheit(mainData.temp) + " F", "wind: " + day_data.wind.speed + " MPH", "humidity: ", mainData.humidity + " %"]
+    const img = document.createElement("img");
+    img.src = `https://openweathermap.org/img/wn/${day_data.weather[0].icon}@2x.png`
+    card.appendChild(img);
     for (item of lineItems){
         const bullet = document.createElement("p");
         bullet.classList.add("main-city-detail");
@@ -96,6 +108,7 @@ const renderFiveDayForecast = (weatherJson) => {
 //render the buttons for recent searches
 const renderRecentSearches = () => {
     const recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+    console.log(recentSearches);
     const searchBar = document.getElementById("search-side-bar");
     const buttons = searchBar.getElementsByTagName('button');
     while (buttons.length > 0) {
@@ -135,12 +148,17 @@ const newCityLoaded = (city) => {
     })
 }
 //add event listener for the button
-const submitBtn = document.getElementById("submit-form");
+const submitFormEl = document.getElementById("search-for-city");
 const submitForm = (event) => {
     event.preventDefault();
     const inputEl = document.getElementById("search-for-city");
     const city = inputEl.value;
     newCityLoaded(city);
 }
-submitBtn.addEventListener("click", (event) => {submitForm(event)})
+submitFormEl.addEventListener('keypress', function(event){
+    if (event.key === "Enter"){
+        event.preventDefault();
+        submitForm(event);
+    }
+})
 newCityLoaded("San Francisco")
