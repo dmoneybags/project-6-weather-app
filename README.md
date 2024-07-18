@@ -4,4 +4,4 @@ An app that uses rest APIS to load a clients weather information
 
 github url: https://github.com/dmoneybags/project-6-weather-app
 
-github pages url: 
+github pages url: https://dmoneybags.github.io/project-6-weather-app/
